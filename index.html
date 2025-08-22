@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovista - Where Design Meets Innovation</title>
+    <link rel="stylesheet" href="innovista.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div id="loading-container" class="loading-container">
+        <div class="loading-content">
+            <div class="logo-animation-container">
+                <!-- CURVV Logo Animation - Increased Size -->
+                <div class="curvv-logo-animated">
+                    <img id="curvvGIF" src="image-removebg-preview.png" alt="CURVV" class="logo-image-animated curvv-image">
+                </div>
+                
+                <!-- Student Design Community Text -->
+                <div class="community-text">Student Design Community</div>
+                
+                <!-- Present Text -->
+                <div class="present-text">Present</div>
+                <div class="loading-gap"></div>
+                
+                <!-- INNOVISTA Logo Animation -->
+                <div class="innovista-logo-animated">
+                    <img id="innovistaGIF" src="ino.3-removebg-preview.png" alt="INNOVISTA" class="logo-image-animated innovista-image">
+                </div>
+            </div>
+            
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+                <div class="loading-percentage" id="loading-percentage">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content">
+        <!-- Curved Navigation Bar -->
+        <nav class="curved-nav" id="curved-nav">
+            <div class="nav-curve">
+                <div class="nav-content">
+                    <div class="nav-logo">
+                        <!-- Removed INNOVISTA logo from navigation, keeping only CURVV -->
+                        <div class="curvv-nav-logo">
+                            <img src="ANIME-unscreen.gif" alt="CURVV Logo" class="logo-image curvv-glow">
+                        </div>
+                    </div>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#registration" class="nav-link">Registration</a></li>
+                       
+                        <li><a href="#faq" class="nav-link">FAQ</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    
+                    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Floating Background Elements -->
+        <div class="floating-elements">
+            <div class="floating-icon" style="--delay: 0s; --duration: 15s;">
+                <i class="fas fa-palette"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 2s; --duration: 18s;">
+                <i class="fas fa-pen-nib"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 4s; --duration: 20s;">
+                <i class="fas fa-vector-square"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 6s; --duration: 16s;">
+                <i class="fas fa-bezier-curve"></i>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="main-logo-container">
+                    <div class="innovista-main-logo">
+                        <img src="ino.3-removebg-preview.png" alt="INNOVISTA" class="main-logo-image">
+                    </div>
+                </div>
+                <div class="venue-info">
+                    <div class="venue-text">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Venue: Main Auditorium, Tech Campus</span>
+                    </div>
+                    <div class="date-text">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Date: March 15-17, 2025</span>
+                    </div>
+                </div>
+                <p class="tagline">WHERE DESIGN MEETS INNOVATION</p>
+                <div class="hero-buttons">
+                    <button class="cta-button secondary">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Innovista</h2>
+                <div class="about-content">
+                    <p>Innovista is a premier event dedicated to fostering creativity and innovation in the fields of design and technology. We bring together students, professionals, and enthusiasts to explore cutting-edge concepts, share knowledge, and collaborate on groundbreaking projects.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Innovation</h3>
+                            <p>Cutting-edge ideas and solutions that push the boundaries of creativity</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Collaboration</h3>
+                            <p>Connect with like-minded creators and build lasting professional relationships</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="card-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Excellence</h3>
+                            <p>Showcase exceptional talent and compete with the best in the industry</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rewards Section -->
+        <section id="rewards" class="rewards-section">
+            <div class="container">
+                <h2 class="section-title">Rewards & Recognition</h2>
+                <div class="rewards-grid">
+                    <!-- 1st Prize -->
+                    <div class="reward-card first-prize">
+                        <div class="reward-icon">
+                            <i class="fas fa-trophy animated-trophy"></i>
+                        </div>
+                        <h3>1st Prize</h3>
+                        <div class="prize-amount">₹50,000</div>
+                        <ul class="prize-benefits">
+                            <li><i class="fas fa-check"></i> Cash Prize</li>
+                            <li><i class="fas fa-check"></i> Internship Opportunity</li>
+                            <li><i class="fas fa-check"></i> Mentorship Program</li>
+                            <li><i class="fas fa-check"></i> Industry Recognition</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2nd Prize -->
+                    <div class="reward-card second-prize">
+                        <div class="reward-icon">
+                            <i class="fas fa-medal animated-medal"></i>
+                        </div>
+                        <h3>2nd Prize</h3>
+                        <div class="prize-amount">₹30,000</div>
+                        <ul class="prize-benefits">
+                            <li><i class="fas fa-check"></i> Cash Prize</li>
+                            <li><i class="fas fa-check"></i> Design Tools License</li>
+                            <li><i class="fas fa-check"></i> Portfolio Review</li>
+                            <li><i class="fas fa-check"></i> Certificate of Excellence</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3rd Prize -->
+                    <div class="reward-card third-prize">
+                        <div class="reward-icon">
+                            <i class="fas fa-award animated-award"></i>
+                        </div>
+                        <h3>3rd Prize</h3>
+                        <div class="prize-amount">₹15,000</div>
+                        <ul class="prize-benefits">
+                            <li><i class="fas fa-check"></i> Cash Prize</li>
+                            <li><i class="fas fa-check"></i> Design Resources</li>
+                            <li><i class="fas fa-check"></i> Workshop Access</li>
+                            <li><i class="fas fa-check"></i> Community Membership</li>
+                        </ul>
+                    </div>
+
+                    <!-- Participation Certificate -->
+                    <div class="reward-card participation">
+                        <div class="reward-icon">
+                            <i class="fas fa-certificate animated-certificate"></i>
+                        </div>
+                        <h3>Participation Certificate</h3>
+                        <div class="prize-amount">For All Participants</div>
+                        <ul class="prize-benefits">
+                            <li><i class="fas fa-check"></i> Digital Certificate</li>
+                            <li><i class="fas fa-check"></i> LinkedIn Badge</li>
+                            <li><i class="fas fa-check"></i> Community Access</li>
+                            <li><i class="fas fa-check"></i> Design Resources</li>
+                            <li><i class="fas fa-check"></i> Networking Opportunities</li>
+                            <li><i class="fas fa-check"></i> Future Event Discounts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="registration" class="registration-section">
+            <div class="container">
+                <h2 class="section-title">Registration</h2>
+                <form id="registration-form" class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userName">Full Name</label>
+                            <input type="text" id="userName" name="userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="tel" id="contactNumber" name="contactNumber" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emailId">Email Address</label>
+                            <input type="email" id="emailId" name="emailId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="enrollmentNumber">Enrollment Number</label>
+                            <input type="text" id="enrollmentNumber" name="enrollmentNumber" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="branch">Branch</label>
+                            <select id="branch" name="branch" required>
+                                <option value="">Select Branch</option>
+                                <option value="Computer Science">Computer Science & Engineering</option>
+                                <option value="AI & Data Science">AI & Data Science</option>
+                                <option value="Mechanical">Mechanical Engineering</option>
+                                <option value="Civil">Civil Engineering</option>
+                                <option value="Electrical">Electrical Engineering</option>
+                                <option value="Electronics">Electronics & Communication</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studyYear">Study Year</label>
+                            <select id="studyYear" name="studyYear" required>
+                                <option value="">Select Year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Register Now</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is Innovista?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Innovista is an annual event focused on design and innovation, featuring workshops, talks, and competitions for creative minds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Who can participate?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Students from all years, professionals, and design enthusiasts are welcome to participate in our events.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I register?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can register through the registration form available on this website. Fill out all required details and submit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Your Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logos">
+                            <div class="footer-logo-item curvv-footer">
+                                <img src="photo_2025-removebg-preview.png" alt="CURVV" class="footer-logo-image curvv-footer-glow">
+                            </div>
+                            <div class="footer-logo-item innovista-footer">
+                                <img src="photo_2025-08-15_01-46-44-removebg-preview.png" alt="INNOVISTA" class="footer-logo-image innovista-footer-glow">
+                            </div>
+                        </div>
+                        <p>Graphic Design Community</p>
+                        <div class="student-community-footer">
+                            <div class="student-icon-animated">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <span>Student Design Community</span>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#registration">Registration</a></li>
+                               
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4>Connect</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Innovista. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // GIF ka data: src, duration(ms), last frame image
+  const gifs = [
+    { id: "innovistaGif", duration: 3000, lastFrame: "graphic-unscreen.gif" },
+    { id: "curvvGif", duration: 2500, lastFrame: "curvv-last.png" }
+  ];
+
+  gifs.forEach(gif => {
+    const img = document.getElementById(gif.id);
+    // Auto replace after duration
+    setTimeout(() => {
+      img.src = gif.lastFrame;
+    }, gif.duration);
+  });
+});
+</script>
+    <script src="innovista.js"></script>
+</body>
+</html>
+
