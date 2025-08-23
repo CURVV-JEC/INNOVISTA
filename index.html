@@ -19,10 +19,10 @@
                 </div>
                 
                 <!-- Student Design Community Text -->
-                <div class="community-text">Student Design Community</div>
+                <div class="community-text">The Student Design Community</div>
                 
                 <!-- Present Text -->
-                <div class="present-text">Present</div>
+                <div class="present-text">Presents</div>
                 <div class="loading-gap"></div>
                 
                 <!-- INNOVISTA Logo Animation -->
@@ -99,14 +99,14 @@
                 <div class="venue-info">
                     <div class="venue-text">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Venue: Main Auditorium, Tech Campus</span>
+                        <span>Venue: Assembly Hall, Jabalpur Engineering College</span>
                     </div>
                     <div class="date-text">
                         <i class="fas fa-calendar-alt"></i>
-                        <span>Date: March 15-17, 2025</span>
+                        <span>Date: September 15-16, 2025</span>
                     </div>
                 </div>
-                <p class="tagline">WHERE DESIGN MEETS INNOVATION</p>
+                
                 <div class="hero-buttons">
                     <button class="cta-button secondary">Learn More</button>
                 </div>
@@ -118,7 +118,9 @@
             <div class="container">
                 <h2 class="section-title">About Innovista</h2>
                 <div class="about-content">
-                    <p>Innovista is a premier event dedicated to fostering creativity and innovation in the fields of design and technology. We bring together students, professionals, and enthusiasts to explore cutting-edge concepts, share knowledge, and collaborate on groundbreaking projects.</p>
+                    <p>INNOVISTA is a vibrant platform that celebrates innovation, creativity, and young talent.
+It provides students with an opportunity to showcase their skills in technology, culture, and the arts.
+It is more than just an event—it is a movement towards building a brighter and more innovative future.</p>
                     
                     <div class="features-grid">
                         <div class="feature-card">
@@ -126,7 +128,7 @@
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <h3>Innovation</h3>
-                            <p>Cutting-edge ideas and solutions that push the boundaries of creativity</p>
+                            <p>INNOVISTA encourages participants to push the boundaries of creativity by blending traditional design with the power of Artificial Intelligence. It’s a platform where fresh ideas meet futuristic tools.</p>
                         </div>
                         
                         <div class="feature-card">
@@ -134,7 +136,7 @@
                                 <i class="fas fa-users"></i>
                             </div>
                             <h3>Collaboration</h3>
-                            <p>Connect with like-minded creators and build lasting professional relationships</p>
+                            <p>The competition fosters teamwork and knowledge sharing. Designers, tech enthusiasts, and creative minds come together to explore new possibilities and learn from one another.</p>
                         </div>
                         
                         <div class="feature-card">
@@ -142,7 +144,7 @@
                                 <i class="fas fa-trophy"></i>
                             </div>
                             <h3>Excellence</h3>
-                            <p>Showcase exceptional talent and compete with the best in the industry</p>
+                            <p>INNOVISTA is about striving for the best. It inspires participants to deliver outstanding designs that reflect originality, skill, and a vision for the future of design.</p>
                         </div>
                     </div>
                 </div>
@@ -223,45 +225,49 @@
         <section id="registration" class="registration-section">
             <div class="container">
                 <h2 class="section-title">Registration</h2>
-                <form id="registration-form" class="registration-form">
+                <form action="https://sheetdb.io/api/v1/r02mi5qyrf8y6" form id="registration-form" class="registration-form" method="post">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="userName">Full Name</label>
-                            <input type="text" id="userName" name="userName" required>
+                            <input type="text" id="userName" name="data[userName]" required>
                         </div>
                         <div class="form-group">
                             <label for="contactNumber">Contact Number</label>
-                            <input type="tel" id="contactNumber" name="contactNumber" required>
+                            <input type="tel" id="contactNumber" name="data[contactNumber]" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="emailId">Email Address</label>
-                            <input type="email" id="emailId" name="emailId" required>
+                            <input type="email" id="emailId" name="data[emailId]" required>
                         </div>
                         <div class="form-group">
                             <label for="enrollmentNumber">Enrollment Number</label>
-                            <input type="text" id="enrollmentNumber" name="enrollmentNumber" required>
+                            <input type="text" id="enrollmentNumber" name="data[enrollmentNumber]" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="branch">Branch</label>
-                            <select id="branch" name="branch" required>
+                            <select id="branch" name="data[branch]" required>
                                 <option value="">Select Branch</option>
+                                <option value="Electronics">Industrial & Production Engineering</option>
                                 <option value="Computer Science">Computer Science & Engineering</option>
+                                <option value="Electronics">Information Technology</option>
                                 <option value="AI & Data Science">AI & Data Science</option>
                                 <option value="Mechanical">Mechanical Engineering</option>
                                 <option value="Civil">Civil Engineering</option>
                                 <option value="Electrical">Electrical Engineering</option>
+                                <option value="Electronics">Mechatronics </option>
                                 <option value="Electronics">Electronics & Communication</option>
+                                
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="studyYear">Study Year</label>
-                            <select id="studyYear" name="studyYear" required>
+                            <select id="studyYear" name="data[studyYear]" required>
                                 <option value="">Select Year</option>
                                 <option value="1st Year">1st Year</option>
                                 <option value="2nd Year">2nd Year</option>
@@ -273,6 +279,7 @@
                     
                     <button type="submit" class="submit-btn">Register Now</button>
                 </form>
+                <p id="form-message"></p>
             </div>
         </section>
 
@@ -353,7 +360,7 @@
                                 <img src="photo_2025-08-15_01-46-44-removebg-preview.png" alt="INNOVISTA" class="footer-logo-image innovista-footer-glow">
                             </div>
                         </div>
-                        <p>Graphic Design Community</p>
+                       
                         <div class="student-community-footer">
                             <div class="student-icon-animated">
                                 <i class="fas fa-user-graduate"></i>
@@ -412,5 +419,4 @@ document.addEventListener("DOMContentLoaded", () => {
     <script src="script.js"></script>
 </body>
 </html>
-
 
