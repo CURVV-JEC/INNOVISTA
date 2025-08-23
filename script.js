@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", () => {
   // Loading Animation
   const loadingContainer = document.getElementById("loading-container")
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content")
   const curvvImage = document.querySelector(".curvv-image")
   const innovistaImage = document.querySelector(".innovista-image")
+ 
 
   let progress = 0
   const loadingDuration = 7000 // 7 seconds
@@ -121,36 +123,42 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Registration Form
-  const registrationForm = document.getElementById("registration-form")
-  registrationForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+  // // Registration Form
+  document.getElementById("registration-form").addEventListener("submit", function(e){
+  e.preventDefault(); // prevent page reload
 
-    const formData = {
-      userName: document.getElementById("userName").value,
-      contactNumber: document.getElementById("contactNumber").value,
-      enrollmentNumber: document.getElementById("enrollmentNumber").value,
-      emailId: document.getElementById("emailId").value,
-      branch: document.getElementById("branch").value,
-      studyYear: document.getElementById("studyYear").value,
-    }
+  // Get form values
+  const formData = {
+    userName: document.getElementById("userName").value,
+    contactNumber: document.getElementById("contactNumber").value,
+    emailId: document.getElementById("emailId").value,
+    enrollmentNumber: document.getElementById("enrollmentNumber").value,
+    branch: document.getElementById("branch").value,
+    studyYear: document.getElementById("studyYear").value,
+  };
 
-    console.log("Registration Data:", formData)
-
-    const submitBtn = registrationForm.querySelector(".submit-btn")
-    const originalText = submitBtn.textContent
-    submitBtn.textContent = "Successfully Registered!"
-    submitBtn.style.background = "linear-gradient(45deg, #10b981, #34d399)"
-
-    alert("Successfully Registered! Welcome to Innovista.")
-
-    setTimeout(() => {
-      submitBtn.textContent = originalText
-      submitBtn.style.background = "linear-gradient(45deg, var(--primary-blue), var(--neon-blue))"
-      registrationForm.reset()
-    }, 3000)
+  // Send data to SheetDB
+  fetch("https://sheetdb.io/api/v1/r02mi5qyrf8y6", {   // <-- apna API link daalo
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ data: formData })
   })
-
+  .then(response => response.json())
+  .then(json => {
+    if(json.created === 1){
+      document.getElementById("form-message").innerText = "🎉 Your registration was successful!";
+      document.getElementById("form-message").style.color = "green";
+      document.getElementById("registration-form").reset(); // clear form
+    } else {
+      document.getElementById("form-message").innerText = "⚠️ Something went wrong. Please try again.";
+      document.getElementById("form-message").style.color = "red";
+    }
+  })
+  .catch(err => {
+    document.getElementById("form-message").innerText = "❌ Error: " + err;
+    document.getElementById("form-message").style.color = "red";
+  });
+});
   // Contact Form
   const contactForm = document.getElementById("contact-form")
   contactForm.addEventListener("submit", (e) => {
