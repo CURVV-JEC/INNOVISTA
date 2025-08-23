@@ -122,12 +122,12 @@ body {
 /* Made both logos same size and removed shadow effects */
 .curvv-image {
   height: 175px;
-  animation: logoRotate3D 2s ease-in-out 1s forwards, logoScale 3s ease-in-out 1.5s infinite alternate;
+  animation: logoFlip3D 2s ease-in-out 1s forwards, logoScale 3s ease-in-out 1.5s infinite alternate;
 }
 
 .innovista-image {
   height: 175px;
-  animation: logoRotate3D 2s ease-in-out 4.5s forwards, logoScale 3s ease-in-out 5s infinite alternate;
+  animation: logoFlip3D 2s ease-in-out 4.5s forwards, logoScale 3s ease-in-out 5s infinite alternate;
 }
 
 /* Added new animation for logo scaling during loading */
@@ -250,12 +250,12 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 5rem;
 }
 
 .curvv-nav-logo .logo-image {
   height: 80px; /* Increased size */
-  width: 100px;
+  width: 180px;
 }
 
 .innovista-nav-logo .logo-image {
@@ -1287,5 +1287,46 @@ section:nth-of-type(even) {
     height: 120px;
   }
 }
+
+.present-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 50px;
+  background: linear-gradient(
+    45deg,
+    hsl(0, 80%, 50%),
+    hsl(60, 80%, 50%),
+    hsl(120, 80%, 50%),
+    hsl(180, 80%, 50%),
+    hsl(240, 80%, 50%),
+    hsl(300, 80%, 50%),
+    hsl(360, 80%, 50%)
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: presentColorCycle 7s linear infinite;
+}
+
+@keyframes presentColorCycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 
