@@ -1,3 +1,5 @@
+
+
 /* CSS Variables */
 :root {
   --primary-blue: #2563eb;
@@ -1112,6 +1114,8 @@ section:nth-of-type(even) {
   border-radius: 12px;
   border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
+  width:fit-content
+
 }
 
 .student-community-footer:hover {
@@ -1147,14 +1151,21 @@ section:nth-of-type(even) {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Prevent mobile menu from being clipped by the curved header */
+  .nav-curve {
+    clip-path: none;
+    overflow: visible;
+  }
+
   .mobile-menu-toggle {
     display: flex;
   }
 
   .nav-menu {
+    display: flex;
     position: fixed;
     top: 80px;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: calc(100vh - 80px);
     background: var(--glass-bg);
@@ -1163,11 +1174,17 @@ section:nth-of-type(even) {
     align-items: center;
     justify-content: flex-start;
     padding-top: 2rem;
-    transition: left 0.3s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 9990;
   }
 
   .nav-menu.active {
-    left: 0;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .nav-menu li {
@@ -1327,6 +1344,7 @@ section:nth-of-type(even) {
     background-position: 0% 50%;
   }
 }
+
 
 
 
