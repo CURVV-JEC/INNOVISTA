@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
   // Loading Animation
   const loadingContainer = document.getElementById("loading-container")
@@ -59,22 +57,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
   const navMenu = document.getElementById("nav-menu")
 
-  mobileMenuToggle.addEventListener("click", () => {
-    mobileMenuToggle.classList.toggle("active")
-    navMenu.classList.toggle("active")
-  })
+  console.log("Mobile menu elements:", { mobileMenuToggle, navMenu })
 
-  // Close mobile menu when clicking on a link
-  navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenuToggle.classList.remove("active")
-      navMenu.classList.remove("active")
+  if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener("click", () => {
+      console.log("Mobile menu toggle clicked")
+      mobileMenuToggle.classList.toggle("active")
+      navMenu.classList.toggle("active")
     })
-  })
+
+    // Close mobile menu when clicking on a link
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenuToggle.classList.remove("active")
+        navMenu.classList.remove("active")
+      })
+    })
+  } else {
+    console.error("Mobile menu elements not found:", { mobileMenuToggle, navMenu })
+  }
 
   // Navigation highlighting and smooth scrolling
   const navLinks = document.querySelectorAll(".nav-link")
-  const sections = document.querySelectorAll("main section")
+  const sections = document.querySelectorAll("section[id]")
 
   const updateActiveLink = () => {
     let currentActiveSectionId = ""
@@ -138,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Send data to SheetDB
-  fetch("https://sheetdb.io/api/v1/r02mi5qyrf8y6", {   // <-- apna API link daalo
+  fetch("https://sheetdb.io/api/v1/si7h4u9vn7fie", {   // <-- apna API link daalo
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ data: formData })
@@ -160,31 +165,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   // Contact Form
-  const contactForm = document.getElementById("contact-form")
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+  (function() {
+    emailjs.init("n1U0WQdG85frG2EPk"); // Replace with your EmailJS Public Key
+  })();
 
-    const formData = {
-      contactName: document.getElementById("contactName").value,
-      contactEmail: document.getElementById("contactEmail").value,
-      contactMessage: document.getElementById("contactMessage").value,
-    }
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    console.log("Contact Data:", formData)
-
-    const submitBtn = contactForm.querySelector(".submit-btn")
-    const originalText = submitBtn.textContent
-    submitBtn.textContent = "Message Sent!"
-    submitBtn.style.background = "linear-gradient(45deg, #10b981, #34d399)"
-
-    alert("Your message has been sent successfully! We'll get back to you soon.")
-
-    setTimeout(() => {
-      submitBtn.textContent = originalText
-      submitBtn.style.background = "linear-gradient(45deg, var(--primary-blue), var(--neon-blue))"
-      contactForm.reset()
-    }, 3000)
-  })
+    emailjs.send("service_dvfoq02", "template_lybyta4", {
+      from_name: document.getElementById("contactName").value,
+      from_email: document.getElementById("contactEmail").value,
+      message: document.getElementById("contactMessage").value
+    })
+    .then(function() {
+      alert("Message sent successfully!");
+      document.getElementById("contact-form").reset();
+    }, function(error) {
+      alert("Failed to send message: " + JSON.stringify(error));
+    });
+  });
 
   // FAQ Toggle
   const faqItems = document.querySelectorAll(".faq-item")
@@ -337,4 +336,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
 
