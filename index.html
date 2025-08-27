@@ -58,7 +58,6 @@
                         <li><a href="#home" class="nav-link">Home</a></li>
                         <li><a href="#about" class="nav-link">About</a></li>
                         <li><a href="#registration" class="nav-link">Registration</a></li>
-                       
                         <li><a href="#faq" class="nav-link">FAQ</a></li>
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
@@ -409,14 +408,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   gifs.forEach(gif => {
     const img = document.getElementById(gif.id);
-    // Auto replace after duration
-    setTimeout(() => {
-      img.src = gif.lastFrame;
-    }, gif.duration);
+    // Auto replace after duration (only if element exists)
+    if (img) {
+      setTimeout(() => {
+        img.src = gif.lastFrame;
+      }, gif.duration);
+    } else {
+      console.warn("GIF element not found for id:", gif.id);
+    }
   });
 });
 </script>
     <script src="script.js"></script>
 </body>
 </html>
-
