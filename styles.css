@@ -523,7 +523,7 @@ body {
 
 /* Sections */
 section {
-  padding: 6rem 0;
+  padding: 3rem 0;
   position: relative;
 }
 
@@ -1762,6 +1762,7 @@ section:nth-of-type(even) {
     font-size: 10px;
   }
 }
+
 
 
 
