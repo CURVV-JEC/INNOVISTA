@@ -1,567 +1,231 @@
-/* CSS Variables */
-:root {
-  --primary-blue: #2563eb;
-  --electric-blue: #3b82f6;
-  --neon-blue: #60a5fa;
-  --dark-blue: #1e40af;
-  --bg-dark: #0f0f23;
-  --bg-darker: #0a0a1a;
-  --text-color: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-light: #ffffff;
-  --glass-bg: rgba(15, 23, 42, 0.8);
-  --glass-border: rgba(59, 130, 246, 0.3);
-  --border-color: rgba(59, 130, 246, 0.2);
+/* ---------- CSS Variables ---------- */
+:root{
+  --primary-blue:#2563eb;
+  --electric-blue:#3b82f6;
+  --neon-blue:#60a5fa;
+  --dark-blue:#1e40af;
+  --bg-dark:#0f0f23;
+  --bg-darker:#0a0a1a;
+  --text-color:#e2e8f0;
+  --text-muted:#94a3b8;
+  --text-light:#ffffff;
+  --glass-bg:rgba(15,23,42,.8);
+  --glass-border:rgba(59,130,246,.3);
+  --border-color:rgba(59,130,246,.2);
 }
 
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ---------- Reset & Base ---------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(135deg,var(--bg-dark),var(--bg-darker));
+  color:var(--text-color);
+  overflow-x:hidden;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
-  color: var(--text-color);
-  overflow-x: hidden;
-  min-height: 100vh;
+/* ---------- Layout Container ---------- */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 2rem; /* default horizontal padding for large screens */
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+/* ---------- Loading Screen ---------- */
+.loading-container{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--bg-dark),var(--bg-darker));
+  z-index:10000;transition:opacity .5s ease-out
+}
+.loading-container.fade-out{opacity:0;pointer-events:none}
+.loading-content{text-align:center}
+.logo-animation-container{margin-bottom:3rem;display:flex;flex-direction:column;align-items:center}
+.curvv-logo-animated,.innovista-logo-animated{margin-bottom:1rem;opacity:0;display:flex;justify-content:center;align-items:center}
+.curvv-logo-animated{animation:logoImageFadeIn 1s ease-out 1s forwards;margin-bottom:1rem}
+.innovista-logo-animated{animation:logoImageFadeIn 1s ease-out 3.5s forwards}
+
+.community-text{
+  font-family:"Rajdhani",sans-serif;
+  font-size:1.8rem;font-weight:600;color:var(--neon-blue);
+  letter-spacing:.1em;margin-bottom:5rem;
+  opacity:0;animation:textFadeIn 1s ease-out 2.5s forwards,textGlow 3s ease-in-out 3s infinite alternate
+}
+@keyframes textGlow{0%{transform:scale(1)}100%{transform:scale(1.02)}}
+@keyframes textFadeIn{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes logoImageFadeIn{to{opacity:1}}
+
+.logo-image-animated{max-width:100%;height:auto;transition:.3s ease all}
+.curvv-image{height:175px;animation:logoScale 3s ease-in-out 1.5s infinite alternate}
+.innovista-image{height:175px;animation:logoScale 3s ease-in-out 5s infinite alternate}
+@keyframes logoScale{0%{transform:scale(1)}100%{transform:scale(1.1)}}
+
+/* ---------- Custom Cursor ---------- */
+.custom-cursor{
+  width:20px;height:20px;border:2px solid var(--primary-blue);border-radius:50%;
+  position:fixed;pointer-events:none;transform:translate(-50%,-50%);
+  transition:.2s ease all;z-index:9999
+}
+.custom-cursor.hover{width:40px;height:40px;background:rgba(37,99,235,.2);border-color:var(--neon-blue)}
+
+/* ---------- Curved Navigation ---------- */
+.curved-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px}
+.nav-curve{
+  position:relative;width:100%;height:100%;
+  background:var(--glass-bg);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);
+  clip-path:ellipse(100% 100% at 50% 0%);padding-bottom:20px
+}
+.nav-content{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1200px;margin:0 auto;padding:1rem 2rem;height:60px
+}
+.nav-logo{display:flex;align-items:center;gap:5rem}
+.curvv-nav-logo .logo-image{height:80px;width:180px}
+.innovista-nav-logo .logo-image{height:40px}
+.nav-menu{display:flex;list-style:none;gap:2rem}
+.nav-link{
+  color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;
+  transition:color .3s ease;padding:.5rem 1rem;border-radius:8px
+}
+.nav-link::after{
+  content:"";position:absolute;width:0;height:2px;
+  background:linear-gradient(90deg,var(--primary-blue),var(--neon-blue));
+  left:50%;transform:translateX(-50%);bottom:-5px;transition:width .3s ease
+}
+.nav-link:hover,.nav-link.active{color:var(--neon-blue);background:rgba(37,99,235,.1)}
+.nav-link:hover::after,.nav-link.active::after{width:80%}
+
+/* ---------- Hamburger ---------- */
+.mobile-menu-toggle{display:none;flex-direction:column;cursor:pointer;width:30px;height:30px;justify-content:space-between}
+.mobile-menu-toggle span{width:100%;height:3px;background:var(--primary-blue);border-radius:2px;transition:.3s ease all}
+.mobile-menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.mobile-menu-toggle.active span:nth-child(2){opacity:0}
+.mobile-menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(8px,-8px)}
+
+/* ---------- Floating Icons ---------- */
+.floating-elements{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.floating-icon{position:absolute;font-size:2rem;color:rgba(37,99,235,.3);animation:float var(--duration) infinite linear;animation-delay:var(--delay)}
+.floating-icon:nth-child(1){left:10%;top:-10%}
+.floating-icon:nth-child(2){left:30%;top:-10%}
+.floating-icon:nth-child(3){left:50%;top:-10%}
+.floating-icon:nth-child(4){left:70%;top:-10%}
+@keyframes float{
+  0%{transform:translateY(-10vh) rotate(0);opacity:0}
+  10%{opacity:1}90%{opacity:1}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 
-/* Loading Animation */
-.loading-container {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
-  z-index: 10000;
-  transition: opacity 0.5s ease-out;
+/* ---------- Hero ---------- */
+.hero-section{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding-top:80px;position:relative
+}
+.hero-content{z-index:1}
+.main-logo-container{margin-bottom:2rem;animation:floatUpDown 4s ease-in-out infinite alternate}
+.main-logo-image{height:300px;max-width:100%;width:auto;transition:.3s ease all}
+.main-logo-image:hover{transform:scale(1.05)}
+@keyframes floatUpDown{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.tagline{
+  font-family:"Space Mono",monospace;font-size:1.5rem;color:var(--neon-blue);
+  letter-spacing:.2em;margin-bottom:3rem;opacity:0;animation:fadeInUp 1s ease-out 1s forwards
+}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-button{
+  padding:1rem 2rem;border:none;border-radius:50px;font-size:1.1rem;font-weight:600;cursor:pointer;
+  transition:.3s ease all;font-family:"Rajdhani",sans-serif;letter-spacing:1px
+}
+.cta-button.primary{background:linear-gradient(45deg,var(--primary-blue),var(--neon-blue));color:#fff}
+.cta-button.secondary{background:transparent;color:var(--neon-blue);border:2px solid var(--primary-blue)}
+.cta-button:hover{transform:translateY(-3px)}
+.cta-button.primary:hover{background:rgba(37,99,235,.1)}
+.cta-button.secondary:hover{background:rgba(37,99,235,.1);border-color:var(--neon-blue)}
+
+/* ---------- Sections ---------- */
+section{padding:6rem 0;position:relative}
+section:nth-of-type(even){background:rgba(15,23,42,.5);backdrop-filter:blur(10px)}
+.section-title{
+  font-family:"Rajdhani",sans-serif;font-size:3rem;font-weight:700;text-align:center;margin-bottom:3rem;
+  background:linear-gradient(45deg,var(--primary-blue),var(--neon-blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
 }
 
-.loading-container.fade-out {
-  opacity: 0;
-  pointer-events: none;
+/* ---------- Features / Cards ---------- */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.feature-card{
+  border:1px solid var(--border-color);border-radius:16px;
+  background:rgba(15,23,42,.6);backdrop-filter:blur(12px);
+  padding:2rem 1rem 1rem;transition:.3s ease all
 }
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
-.loading-content {
-  text-align: center;
+.reward-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.reward-card{
+  border:1px solid var(--border-color);border-radius:16px;background:rgba(15,23,42,.6);
+  padding:2rem;transition:.3s ease all
 }
+.reward-card:hover{transform:translateY(-4px)}
 
-.logo-animation-container {
-  margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ---------- Forms ---------- */
+.registration-form,
+.contact-form{
+  border:1px solid var(--border-color);
+  background:rgba(15,23,42,.6);
+  border-radius:16px;
+  padding:3rem; /* inner space */
+  max-width:800px;margin:0 auto
 }
-
-.curvv-logo-animated,
-.innovista-logo-animated {
-  margin-bottom: 1rem;
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-row .form-control{width:100%}
+.form-control input,.form-control textarea,.form-control select{
+  width:100%;padding:.9rem 1rem;border-radius:10px;border:1px solid var(--glass-border);
+  background:rgba(2,6,23,.6);color:var(--text-light);outline:none
 }
+.form-actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1rem}
 
-.curvv-logo-animated {
-  animation: logoImageFadeIn 1s ease-out 1s forwards;
-  margin-bottom: 1rem;
+/* ---------- FAQ ---------- */
+#faq-section{}
+.faq-container{max-width:900px;margin:0 auto}
+.faq-item{border:1px solid var(--border-color);border-radius:12px;background:rgba(15,23,42,.5);overflow:hidden;margin-bottom:1rem}
+.faq-question{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:1.5rem}
+.faq-answer{display:none;padding:0 1.5rem 1.5rem}
+.faq-item.open .faq-answer{display:block}
+
+/* ---------- Footer ---------- */
+.site-footer{padding:2rem 0;border-top:1px solid var(--glass-border);color:var(--text-muted);text-align:center}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .features-grid,.reward-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-/* Added new text elements for Student Design Community */
-.community-text {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--neon-blue);
-  letter-spacing: 0.1em;
-  margin-bottom: 5rem;
-  opacity: 0;
-  animation: textFadeIn 1s ease-out 2.5s forwards, textGlow 3s ease-in-out 3s infinite alternate;
+@media (max-width:768px){
+  .nav-menu{display:none}
+  .mobile-menu-toggle{display:flex}
+  section{padding:4rem 0}
+  .features-grid,.reward-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .registration-form,.contact-form{padding:2rem}
+  .section-title{font-size:2.2rem}
 }
-
-@keyframes textGlow {
-  0% {
-    transform: scale(1);
+@media (max-width:480px){
+  .container{
+    /* >>> EDIT <<< Mobile side gap removed. 
+       Before: padding: 0 1rem; (caused ~16px gap on both sides)
+       Now:    padding: 0; so borders can touch screen edges if desired. */
+    padding:0;
   }
-  100% {
-    transform: scale(1.02);
-  }
+  .nav-content{padding:1rem}
+  .registration-form,.contact-form{padding:2rem 1rem}
+  .section-title{font-size:1.8rem}
+  .community-text{font-size:1.2rem}
+  .curvv-image,.innovista-image{height:120px}
 }
 
-.innovista-logo-animated {
-  animation: logoImageFadeIn 1s ease-out 3.5s forwards;
-}
-
-@keyframes textFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.logo-image-animated {
-  max-width: 100%;
-  height: auto;
-  transition: all 0.3s ease;
-}
-
-/* Made both logos same size and removed shadow effects */
-.curvv-image {
-  height: 175px;
-  animation: logoFlip3D 2s ease-in-out 1s forwards, logoScale 3s ease-in-out 1.5s infinite alternate;
-}
-
-.innovista-image {
-  height: 175px;
-  animation: logoFlip3D 2s ease-in-out 4.5s forwards, logoScale 3s ease-in-out 5s infinite alternate;
-}
-
-/* Added new animation for logo scaling during loading */
-@keyframes logoScale {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-
-@keyframes logoImageFadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes logoRotate3D {
-  0% {
-    transform: perspective(1000px) rotateY(-180deg) rotateX(20deg);
-    opacity: 0.3;
-  }
-  50% {
-    transform: perspective(1000px) rotateY(-90deg) rotateX(10deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-    opacity: 1;
-  }
-}
-
-.loading-bar-container {
-  width: 300px;
-  margin: 0 auto;
-}
-
-.loading-bar {
-  width: 0%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--neon-blue));
-  border-radius: 2px;
-  transition: width 0.1s ease;
-}
-
-.loading-percentage {
-  margin-top: 1rem;
-  font-family: "Space Mono", monospace;
-  color: var(--neon-blue);
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-/* Custom Cursor */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--primary-blue);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease;
-  z-index: 9999;
-}
-
-.custom-cursor.hover {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(37, 99, 235, 0.2);
-  border-color: var(--neon-blue);
-}
-
-/* Main Content */
-.main-content {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
-}
-
-.main-content.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Curved Navigation */
-.curved-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: 80px;
-}
-
-.nav-curve {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
-  clip-path: ellipse(100% 100% at 50% 0%);
-  padding-bottom: 20px;
-}
-
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  height: 60px;
-}
-
-/* Updated navigation logo layout */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-}
-
-.curvv-nav-logo .logo-image {
-  height: 80px;
-  width: 180px;
-}
-
-.innovista-nav-logo .logo-image {
-  height: 40px;
-}
-
-.innovista-nav .logo-image {
-  animation: logoGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes logoGlow {
-  0% {}
-  100% {}
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-link {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--neon-blue));
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -5px;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--neon-blue);
-  background: rgba(37, 99, 235, 0.1);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 80%;
-}
-
-/* Mobile Menu Toggle */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  justify-content: space-between;
-}
-
-.mobile-menu-toggle span {
-  width: 100%;
-  height: 3px;
-  background-color: var(--primary-blue);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(8px, -8px);
-}
-
-/* Floating Elements */
-.floating-elements {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.floating-icon {
-  position: absolute;
-  font-size: 2rem;
-  color: rgba(37, 99, 235, 0.3);
-  animation: float var(--duration) infinite linear;
-  animation-delay: var(--delay);
-}
-
-.floating-icon:nth-child(1) {
-  left: 10%;
-  top: -10%;
-}
-.floating-icon:nth-child(2) {
-  left: 30%;
-  top: -10%;
-}
-.floating-icon:nth-child(3) {
-  left: 50%;
-  top: -10%;
-}
-.floating-icon:nth-child(4) {
-  left: 70%;
-  top: -10%;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Hero Section */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 80px;
-  position: relative;
-}
-
-.hero-content {
-  z-index: 1;
-}
-
-.main-logo-container {
-  margin-bottom: 2rem;
-  animation: floatUpDown 4s ease-in-out infinite alternate;
-}
-
-.main-logo-image {
-  height: 300px;
-  max-width: 100%;
-  width: auto;
-  animation: logoGlow 3s ease-in-out infinite alternate;
-  transition: all 0.3s ease;
-}
-
-.main-logo-image:hover {
-  transform: scale(1.05);
-}
-
-@keyframes logoGlow {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.02);
-  }
-}
-
-@keyframes floatUpDown {
-  0%,100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.tagline {
-  font-family: "Space Mono", monospace;
-  font-size: 1.5rem;
-  color: var(--neon-blue);
-  letter-spacing: 0.2em;
-  margin-bottom: 3rem;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out 1s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cta-button {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: "Rajdhani", sans-serif;
-  letter-spacing: 1px;
-}
-
-.cta-button.primary {
-  background: linear-gradient(45deg, var(--primary-blue), var(--neon-blue));
-  color: white;
-}
-
-.cta-button.secondary {
-  background: transparent;
-  color: var(--neon-blue);
-  border: 2px solid var(--primary-blue);
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-}
-
-.cta-button.primary:hover {
-  background: rgba(37, 99, 235, 0.1);
-}
-
-.cta-button.secondary:hover {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: var(--neon-blue);
-}
-
-/* Sections */
-section {
-  padding: 6rem 0;
-  position: relative;
-}
-
-section:nth-of-type(even) {
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(10px);
-}
-
-.section-title {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(45deg, var(--primary-blue), var(--neon-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* (rest of your CSS remains same till media queries) */
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  /* ... */
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0;   /* ✅ Edited: gap removed for mobile */
-  }
-
-  .nav-content {
-    padding: 1rem;
-  }
-
-  .registration-form,
-  .contact-form {
-    padding: 2rem 1rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .community-text {
-    font-size: 1.2rem;
-  }
-
-  .curvv-image {
-    height: 120px;
-  }
-
-  .innovista-image {
-    height: 120px;
-  }
+/* ---------- Optional: compact inner paddings on small screens ---------- */
+@media (max-width:480px){
+  /* You can comment these lines if you prefer original spacing */
+  .feature-card,.reward-card{padding:1rem} /* compact cards */
+  .faq-question{padding:1rem}              /* compact FAQ */
+  .faq-answer{padding:0 1rem 1rem}
 }
