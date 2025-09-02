@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovista - Where Design Meets Innovation</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <!-- Loading Animation -->
     <div id="loading-container" class="loading-container">
@@ -15,22 +19,24 @@
             <div class="logo-animation-container">
                 <!-- CURVV Logo Animation - Increased Size -->
                 <div class="curvv-logo-animated">
-                    <img id="curvvGIF" src="image-removebg-preview.png" alt="CURVV" class="logo-image-animated curvv-image">
+                    <img id="curvvGIF" src="image-removebg-preview.png" alt="CURVV"
+                        class="logo-image-animated curvv-image">
                 </div>
-                
+
                 <!-- Student Design Community Text -->
                 <div class="community-text">The Student Design Community</div>
-                
+
                 <!-- Present Text -->
                 <div class="present-text">Presents</div>
                 <div class="loading-gap"></div>
-                
+
                 <!-- INNOVISTA Logo Animation -->
                 <div class="innovista-logo-animated">
-                    <img id="innovistaGIF" src="ino.3-removebg-preview.png" alt="INNOVISTA" class="logo-image-animated innovista-image">
+                    <img id="innovistaGIF" src="ino.3-removebg-preview.png" alt="INNOVISTA"
+                        class="logo-image-animated innovista-image">
                 </div>
             </div>
-            
+
             <div class="loading-bar-container">
                 <div class="loading-bar" id="loading-bar"></div>
                 <div class="loading-percentage" id="loading-percentage">0%</div>
@@ -53,7 +59,7 @@
                             <img src="ANIME-unscreen.gif" alt="CURVV Logo" class="logo-image curvv-glow">
                         </div>
                     </div>
-                    
+
                     <ul class="nav-menu" id="nav-menu">
                         <li><a href="#home" class="nav-link">Home</a></li>
                         <li><a href="#about" class="nav-link">About</a></li>
@@ -61,7 +67,7 @@
                         <li><a href="#faq" class="nav-link">FAQ</a></li>
                         <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
-                    
+
                     <div class="mobile-menu-toggle" id="mobile-menu-toggle">
                         <span></span>
                         <span></span>
@@ -95,19 +101,55 @@
                         <img src="ino.3-removebg-preview.png" alt="INNOVISTA" class="main-logo-image">
                     </div>
                 </div>
+                <div id="event-countdown" class="countdown" aria-label="Event countdown"
+                         data-target="2025-09-16T00:00:00+05:30">
+                      <div class="countdown-inner" role="timer" aria-live="polite">
+                        <div class="countdown-item">
+                          <span class="countdown-value" id="cd-days">00</span>
+                          <span class="countdown-label">Days</span>
+                        </div>
+                        <span class="countdown-sep" aria-hidden="true">:</span>
+                        <div class="countdown-item">
+                          <span class="countdown-value" id="cd-hours">00</span>
+                          <span class="countdown-label">Hours</span>
+                        </div>
+                        <span class="countdown-sep" aria-hidden="true">:</span>
+                        <div class="countdown-item">
+                          <span class="countdown-value" id="cd-mins">00</span>
+                          <span class="countdown-label">Minutes</span>
+                        </div>
+                        <span class="countdown-sep" aria-hidden="true">:</span>
+                        <div class="countdown-item">
+                          <span class="countdown-value" id="cd-secs">00</span>
+                          <span class="countdown-label">Seconds</span>
+                        </div>
+                      </div>
                 <div class="venue-info">
                     <div class="venue-text">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Venue: Assembly Hall, Jabalpur Engineering College</span>
+                        <span>Venue: Jashan Hall, Jabalpur Engineering College</span>
                     </div>
                     <div class="date-text">
                         <i class="fas fa-calendar-alt"></i>
-                        <span>Date: September 15-16, 2025</span>
+                        <span>Date: September 16, 2025</span>
                     </div>
                 </div>
-                
+
                 <div class="hero-buttons">
+                    <a href="DOC-20250902-WA0021._" target="_blank">
                     <button class="cta-button secondary">Learn More</button>
+                    </a>
+                    <div class="announcement-ticker" role="status" aria-live="polite">
+                        <span class="bullet-dot" aria-hidden="true"></span>
+                        <div class="announcement-track">
+                            <div class="announcement-text">
+                                <strong>Register Now</strong> — Seats are limited!
+                            </div>
+                            <div class="announcement-text" aria-hidden="true">
+                                <strong>Register Now</strong> — Seats are unlimited!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -118,32 +160,39 @@
                 <h2 class="section-title">About Innovista</h2>
                 <div class="about-content">
                     <p>INNOVISTA is a vibrant platform that celebrates innovation, creativity, and young talent.
-It provides students with an opportunity to showcase their skills in technology, culture, and the arts.
-It is more than just an event—it is a movement towards building a brighter and more innovative future.</p>
-                    
+                        It provides students with an opportunity to showcase their skills in technology, culture, and
+                        the arts.
+                        It is more than just an event—it is a movement towards building a brighter and more innovative
+                        future.</p>
+
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="card-icon">
                                 <i class="fas fa-lightbulb"></i>
                             </div>
                             <h3>Innovation</h3>
-                            <p>INNOVISTA encourages participants to push the boundaries of creativity by blending traditional design with the power of Artificial Intelligence. It’s a platform where fresh ideas meet futuristic tools.</p>
+                            <p>INNOVISTA encourages participants to push the boundaries of creativity by blending
+                                traditional design with the power of Artificial Intelligence. It’s a platform where
+                                fresh ideas meet futuristic tools.</p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <div class="card-icon">
                                 <i class="fas fa-users"></i>
                             </div>
                             <h3>Collaboration</h3>
-                            <p>The competition fosters teamwork and knowledge sharing. Designers, tech enthusiasts, and creative minds come together to explore new possibilities and learn from one another.</p>
+                            <p>The competition fosters teamwork and knowledge sharing. Designers, tech enthusiasts, and
+                                creative minds come together to explore new possibilities and learn from one another.
+                            </p>
                         </div>
-                        
+
                         <div class="feature-card">
                             <div class="card-icon">
                                 <i class="fas fa-trophy"></i>
                             </div>
                             <h3>Excellence</h3>
-                            <p>INNOVISTA is about striving for the best. It inspires participants to deliver outstanding designs that reflect originality, skill, and a vision for the future of design.</p>
+                            <p>INNOVISTA is about striving for the best. It inspires participants to deliver outstanding
+                                designs that reflect originality, skill, and a vision for the future of design.</p>
                         </div>
                     </div>
                 </div>
@@ -158,62 +207,65 @@ It is more than just an event—it is a movement towards building a brighter and
                     <!-- 1st Prize -->
                     <div class="reward-card first-prize">
                         <div class="reward-icon">
-                            <i class="fas fa-trophy animated-trophy"></i>
+                            <i class="fas fa-headphones"></i>
                         </div>
                         <h3>1st Prize</h3>
-                        <div class="prize-amount">₹50,000</div>
+                         
+                        <div class="prize-amount">Branded Headphone</div>
+                        
                         <ul class="prize-benefits">
-                            <li><i class="fas fa-check"></i> Cash Prize</li>
-                            <li><i class="fas fa-check"></i> Internship Opportunity</li>
-                            <li><i class="fas fa-check"></i> Mentorship Program</li>
-                            <li><i class="fas fa-check"></i> Industry Recognition</li>
+                            <li><i class="fas fa-check"></i>Certificate of Excellence  </li>
+                            <li><i class="fas fa-check"></i> Boost Your Resume</li>
+                            <li><i class="fas fa-check"></i> You can post this on linkedin and mention in achievemnts and certifications.</li>
+                            <li><i class="fas fa-check"></i> Your Skills will level up</li>
                         </ul>
                     </div>
 
                     <!-- 2nd Prize -->
                     <div class="reward-card second-prize">
                         <div class="reward-icon">
-                            <i class="fas fa-medal animated-medal"></i>
+                            <i class="fas fa-calculator"></i>
                         </div>
                         <h3>2nd Prize</h3>
-                        <div class="prize-amount">₹30,000</div>
+                        <div class="prize-amount">Scientific Calculator</div>
                         <ul class="prize-benefits">
-                            <li><i class="fas fa-check"></i> Cash Prize</li>
-                            <li><i class="fas fa-check"></i> Design Tools License</li>
-                            <li><i class="fas fa-check"></i> Portfolio Review</li>
-                            <li><i class="fas fa-check"></i> Certificate of Excellence</li>
+                            <li><i class="fas fa-check"></i> You can showcase in your profile.</li>
+                            <li><i class="fas fa-check"></i> Boost in Resume</li>
+                            <li><i class="fas fa-check"></i> You will develop your critical thinking skills
+
+                            <li><i class="fas fa-check"></i> You can mention this in your achievements.</li>
                         </ul>
                     </div>
 
                     <!-- 3rd Prize -->
                     <div class="reward-card third-prize">
                         <div class="reward-icon">
-                            <i class="fas fa-award animated-award"></i>
+                            <i class="fas fa-volume-high icon"></i>
                         </div>
                         <h3>3rd Prize</h3>
-                        <div class="prize-amount">₹15,000</div>
+                        <div class="prize-amount">Speaker</div>
                         <ul class="prize-benefits">
-                            <li><i class="fas fa-check"></i> Cash Prize</li>
-                            <li><i class="fas fa-check"></i> Design Resources</li>
-                            <li><i class="fas fa-check"></i> Workshop Access</li>
-                            <li><i class="fas fa-check"></i> Community Membership</li>
+                            <li><i class="fas fa-check"></i> Cerificate of Excellence</li>
+                            <li><i class="fas fa-check"></i>Boost in Resume </li>
+                            <li><i class="fas fa-check"></i>You can showcase in your profile. </li>
+                            <li><i class="fas fa-check"></i> You can mention this in your achievements.</li>
                         </ul>
                     </div>
 
                     <!-- Participation Certificate -->
                     <div class="reward-card participation">
                         <div class="reward-icon">
-                            <i class="fas fa-certificate animated-certificate"></i>
+                            <i class="fas fa-certificate"></i>
                         </div>
                         <h3>Participation Certificate</h3>
                         <div class="prize-amount">For All Participants</div>
                         <ul class="prize-benefits">
                             <li><i class="fas fa-check"></i> Digital Certificate</li>
-                            <li><i class="fas fa-check"></i> LinkedIn Badge</li>
-                            <li><i class="fas fa-check"></i> Community Access</li>
-                            <li><i class="fas fa-check"></i> Design Resources</li>
-                            <li><i class="fas fa-check"></i> Networking Opportunities</li>
-                            <li><i class="fas fa-check"></i> Future Event Discounts</li>
+                            <li><i class="fas fa-check"></i> Boost in Resume</li>
+                            <li><i class="fas fa-check"></i> Your Skills will level up.</li>
+                            <li><i class="fas fa-check"></i> You will develop your critical thinking skills</li>
+                            
+                            <li><i class="fas fa-check"></i> You can showcase in your profile.</li>
                         </ul>
                     </div>
                 </div>
@@ -224,7 +276,8 @@ It is more than just an event—it is a movement towards building a brighter and
         <section id="registration" class="registration-section">
             <div class="container">
                 <h2 class="section-title">Registration</h2>
-                <form action="https://sheetdb.io/api/v1/r02mi5qyrf8y6" form id="registration-form" class="registration-form" method="post">
+                <form action="https://sheetdb.io/api/v1/r02mi5qyrf8y6" form id="registration-form"
+                    class="registration-form" method="post">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="userName">Full Name</label>
@@ -235,7 +288,7 @@ It is more than just an event—it is a movement towards building a brighter and
                             <input type="tel" id="contactNumber" name="data[contactNumber]" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="emailId">Email Address</label>
@@ -246,7 +299,7 @@ It is more than just an event—it is a movement towards building a brighter and
                             <input type="text" id="enrollmentNumber" name="data[enrollmentNumber]" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="branch">Branch</label>
@@ -261,7 +314,7 @@ It is more than just an event—it is a movement towards building a brighter and
                                 <option value="Electrical">Electrical Engineering</option>
                                 <option value="Electronics">Mechatronics </option>
                                 <option value="Electronics">Electronics & Communication</option>
-                                
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -275,13 +328,26 @@ It is more than just an event—it is a movement towards building a brighter and
                             </select>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="submit-btn">Register Now</button>
                 </form>
                 <p id="form-message"></p>
             </div>
         </section>
-
+            <!-- Registration Popup Modal -->
+        <div id="registration-popup" class="popup-overlay">
+            <div class="popup-content">
+                <div class="popup-icon" id="popup-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 id="popup-title">Registration Successful!</h3>
+                <p id="popup-message">Your registration has been submitted successfully. .</p>
+                <a href="https://chat.whatsapp.com/FwB7X4V9jHACE4TOThP4oE?mode=ems_share_t" target="_blank">Join Innovista Whatsapp group</a>
+                <button id="popup-close" class="popup-close-btn">Close</button>
+            </div>
+        </div>
+         
+        
         <!-- FAQ Section -->
         <section id="faq" class="faq-section">
             <div class="container">
@@ -293,27 +359,30 @@ It is more than just an event—it is a movement towards building a brighter and
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Innovista is an annual event focused on design and innovation, featuring workshops, talks, and competitions for creative minds.</p>
+                            <p>Innovista is an annual event focused on design and innovation, featuring workshops,
+                                talks, and competitions for creative minds.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>Who can participate?</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>Students from all years, professionals, and design enthusiasts are welcome to participate in our events.</p>
+                            <p>Students from all years, professionals, and design enthusiasts are welcome to participate
+                                in our events.</p>
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">
                             <h3>How do I register?</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>You can register through the registration form available on this website. Fill out all required details and submit.</p>
+                            <p>You can register through the registration form available on this website. Fill out all
+                                required details and submit.</p>
                         </div>
                     </div>
                 </div>
@@ -324,7 +393,8 @@ It is more than just an event—it is a movement towards building a brighter and
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2 class="section-title">Contact Us</h2>
-                <form id="contact-form" class="contact-form">
+                <form action="https://formsubmit.co/curvv.jecjabalpur@gmail.com" id="contact-form" class="contact-form" method="post" >
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="contactName">Your Name</label>
@@ -335,12 +405,16 @@ It is more than just an event—it is a movement towards building a brighter and
                             <input type="email" id="contactEmail" name="contactEmail" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="contactMessage">Message</label>
                         <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
                     </div>
-                    
+                    <input type="hidden" name="captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_template" value="box">
+                   <input type="hidden" name="_next" value="https://yourwebsite.com/success.html">
+                   <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html#success">
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
@@ -353,21 +427,25 @@ It is more than just an event—it is a movement towards building a brighter and
                     <div class="footer-brand">
                         <div class="footer-logos">
                             <div class="footer-logo-item curvv-footer">
-                                <img src="photo_2025-removebg-preview.png" alt="CURVV" class="footer-logo-image curvv-footer-glow">
+                                <img src="photo_2025-removebg-preview.png" alt="CURVV"
+                                    class="footer-logo-image curvv-footer-glow">
                             </div>
                             <div class="footer-logo-item innovista-footer">
-                                <img src="photo_2025-08-15_01-46-44-removebg-preview.png" alt="INNOVISTA" class="footer-logo-image innovista-footer-glow">
+                                <img src="photo_2025-08-15_01-46-44-removebg-preview.png" alt="INNOVISTA"
+                                    class="footer-logo-image innovista-footer-glow">
                             </div>
                         </div>
-                       
+
                         <div class="student-community-footer">
                             <div class="student-icon-animated">
+                                
                                 <i class="fas fa-user-graduate"></i>
                             </div>
-                            <span>Student Design Community</span>
+                            
+                           <span>Student Design Community</span>
                         </div>
                     </div>
-                    
+
                     <div class="footer-links">
                         <div class="footer-column">
                             <h4>Quick Links</h4>
@@ -375,50 +453,137 @@ It is more than just an event—it is a movement towards building a brighter and
                                 <li><a href="#home">Home</a></li>
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#registration">Registration</a></li>
-                               
+
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
-                        
-                        <div class="footer-column">
-                            <h4>Connect</h4>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                        <div class="footer-column-container">   <!-- @vivek -->
+                            <div class="footer-column"> 
+                                <h4>Connect</h4>
+                                <div class="social-links">
+                                    <a href="https://wa.me/qr/MXV3Z6BJE7KEL1"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="mailto:curvv.jecjabalpur@gmail.com"><i class="fas fa-envelope"></i></a>
+                                    <a href="https://www.instagram.com/curvv.jec?igsh=N2xuaGE5dmU4ZzJj" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/company/curvv-jec/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                             <div class="contact-links">
+                                <h4 class="contact-heading">Contact Us For Any Issues</h4>
+                                    <a href="tel:+919876543210">
+                                        <i class="fas fa-phone"></i> Harshit Palliwal 
+                                        <span class="phone-number">+91 98765 43210</span>
+                                    </a>
+                                    <a href="tel:+919812345678">
+                                        <i class="fas fa-phone"></i> Sumit Kumar 
+                                        <span class="phone-number">+91 98123 45678</span>
+                                    </a>
+                                    <a href="tel:+919876123456">
+                                        <i class="fas fa-phone"></i> Manas Singh 
+                                        <span class="phone-number">+91 98761 23456</span>
+                                    </a>
+                                </div>
+                        </div> 
+                                        
+                                    
+                                
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="footer-bottom">
                     <p>&copy; 2025 Innovista. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // GIF ka data: src, duration(ms), last frame image
-  const gifs = [
-    { id: "innovistaGif", duration: 3000, lastFrame: "graphic-unscreen.gif" },
-    { id: "curvvGif", duration: 2500, lastFrame: "curvv-last.png" }
-  ];
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // GIF ka data: src, duration(ms), last frame image
+            const gifs = [
+                { id: "innovistaGif", duration: 3000, lastFrame: "graphic-unscreen.gif" },
+                { id: "curvvGif", duration: 2500, lastFrame: "curvv-last.png" }
+            ];
 
-  gifs.forEach(gif => {
-    const img = document.getElementById(gif.id);
-    // Auto replace after duration (only if element exists)
-    if (img) {
-      setTimeout(() => {
-        img.src = gif.lastFrame;
-      }, gif.duration);
-    } else {
-      console.warn("GIF element not found for id:", gif.id);
-    }
+            gifs.forEach(gif => {
+                const img = document.getElementById(gif.id);
+                // Auto replace after duration (only if element exists)
+                if (img) {
+                    setTimeout(() => {
+                        img.src = gif.lastFrame;
+                    }, gif.duration);
+                } else {
+                    console.warn("GIF element not found for id:", gif.id);
+                }
+            });
+        });
+        // Registration Popup Modal
+  const registrationForm = document.getElementById('registration-form');
+  const registrationPopup = document.getElementById('registration-popup');
+  const popupClose = document.getElementById('popup-close');
+
+  registrationForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    registrationPopup.style.display = 'block';
   });
-});
-</script>
+
+  popupClose.addEventListener('click', function() {
+    registrationPopup.style.display = 'none';
+  });
+  (function () {
+            const root = document.getElementById('event-countdown');
+            if (!root) return;
+
+            const targetAttr = root.getAttribute('data-target') || '2025-09-16T00:00:00';
+            const target = new Date(targetAttr);
+
+            const elDays = document.getElementById('cd-days');
+            const elHours = document.getElementById('cd-hours');
+            const elMins = document.getElementById('cd-mins');
+            const elSecs = document.getElementById('cd-secs');
+            const pad = (n) => String(n).padStart(2, '0');
+
+            function tick() {
+                const now = new Date();
+                let diff = target.getTime() - now.getTime();
+
+                if (isNaN(target.getTime())) {
+                    console.warn('[countdown] Invalid target date:', targetAttr);
+                    return;
+                }
+
+                if (diff <= 0) {
+                    elDays.textContent = '00';
+                    elHours.textContent = '00';
+                    elMins.textContent = '00';
+                    elSecs.textContent = '00';
+                    root.classList.add('countdown-complete');
+                    clearInterval(timer);
+                    return;
+                }
+
+                const days = Math.floor(diff / 86400000); diff %= 86400000;
+                const hours = Math.floor(diff / 3600000); diff %= 3600000;
+                const mins = Math.floor(diff / 60000); diff %= 60000;
+                const secs = Math.floor(diff / 1000);
+
+                elDays.textContent = pad(days);
+                elHours.textContent = pad(hours);
+                elMins.textContent = pad(mins);
+                elSecs.textContent = pad(secs);
+            }
+
+            tick();
+            const timer = setInterval(tick, 1000);
+        })();
+
+    </script>
+    
     <script src="script.js"></script>
 </body>
+
 </html>
+
