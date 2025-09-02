@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content")
   const curvvImage = document.querySelector(".curvv-image")
   const innovistaImage = document.querySelector(".innovista-image")
- 
 
   let progress = 0
   const loadingDuration = 7000 // 7 seconds
@@ -127,63 +126,129 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
+   // Registration Form
+  document.getElementById("registration-form").addEventListener("submit", function (e) {
+    e.preventDefault() // prevent page reload
 
-  // // Registration Form
-  document.getElementById("registration-form").addEventListener("submit", function(e){
-  e.preventDefault(); // prevent page reload
+    const submitBtn = this.querySelector(".submit-btn")
+    const originalText = submitBtn.textContent
+    submitBtn.textContent = "Registering..."
+    submitBtn.disabled = true
 
-  // Get form values
-  const formData = {
-    userName: document.getElementById("userName").value,
-    contactNumber: document.getElementById("contactNumber").value,
-    emailId: document.getElementById("emailId").value,
-    enrollmentNumber: document.getElementById("enrollmentNumber").value,
-    branch: document.getElementById("branch").value,
-    studyYear: document.getElementById("studyYear").value,
-  };
-
-  // Send data to SheetDB
-  fetch("https://sheetdb.io/api/v1/si7h4u9vn7fie", {   // <-- apna API link daalo
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ data: formData })
-  })
-  .then(response => response.json())
-  .then(json => {
-    if(json.created === 1){
-      document.getElementById("form-message").innerText = "🎉 Your registration was successful!";
-      document.getElementById("form-message").style.color = "green";
-      document.getElementById("registration-form").reset(); // clear form
-    } else {
-      document.getElementById("form-message").innerText = "⚠️ Something went wrong. Please try again.";
-      document.getElementById("form-message").style.color = "red";
+    // Get form values
+    const formData = {
+      userName: document.getElementById("userName").value,
+      contactNumber: document.getElementById("contactNumber").value,
+      emailId: document.getElementById("emailId").value,
+      enrollmentNumber: document.getElementById("enrollmentNumber").value,
+      branch: document.getElementById("branch").value,
+      studyYear: document.getElementById("studyYear").value,
     }
-  })
-  .catch(err => {
-    document.getElementById("form-message").innerText = "❌ Error: " + err;
-    document.getElementById("form-message").style.color = "red";
-  });
-});
-  // Contact Form
-  (function() {
-    emailjs.init("n1U0WQdG85frG2EPk"); // Replace with your EmailJS Public Key
-  })();
 
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    emailjs.send("service_dvfoq02", "template_lybyta4", {
-      from_name: document.getElementById("contactName").value,
-      from_email: document.getElementById("contactEmail").value,
-      message: document.getElementById("contactMessage").value
+    // Send data to SheetDB
+    fetch("https://sheetdb.io/api/v1/m3eqlu7xax4lo", {
+      // <-- apna API link daalo
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data: formData }),
     })
-    .then(function() {
-      alert("Message sent successfully!");
-      document.getElementById("contact-form").reset();
-    }, function(error) {
-      alert("Failed to send message: " + JSON.stringify(error));
-    });
-  });
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.created === 1) {
+          showRegistrationPopup(
+            "success",
+            "Registration Successful!",
+            "🎉 Your registration has been submitted successfully! We'll contact you soon with further details about Innovista.",
+            "fas fa-check-circle",
+          )
+          document.getElementById("registration-form").reset() // clear form
+        } else {
+          showRegistrationPopup(
+            "error",
+            "Registration Failed",
+            "⚠️ Something went wrong while processing your registration. Please check your details and try again.",
+            "fas fa-exclamation-triangle",
+          )
+        }
+      })
+      .catch((err) => {
+        showRegistrationPopup(
+          "error",
+          "Connection Error",
+          "❌ Unable to connect to the server. Please check your internet connection and try again.",
+          "fas fa-wifi",
+        )
+        console.error("Registration error:", err)
+      })
+      .finally(() => {
+        submitBtn.textContent = originalText
+        submitBtn.disabled = false
+      })
+  })
+
+  function showRegistrationPopup(type, title, message, iconClass) {
+    const popup = document.getElementById("registration-popup")
+    const popupIcon = document.getElementById("popup-icon")
+    const popupTitle = document.getElementById("popup-title")
+    const popupMessage = document.getElementById("popup-message")
+
+    // Set popup content
+    popupTitle.textContent = title
+    popupMessage.textContent = message
+
+    // Set icon and styling based on type
+    popupIcon.innerHTML = `<i class="${iconClass}"></i>`
+    popupIcon.className = `popup-icon ${type}`
+
+    // Show popup
+    popup.classList.add("show")
+
+    // Add click event to close button
+    const closeBtn = document.getElementById("popup-close")
+    closeBtn.onclick = () => {
+      popup.classList.remove("show")
+    }
+
+    // Close popup when clicking outside
+    popup.onclick = (e) => {
+      if (e.target === popup) {
+        popup.classList.remove("show")
+      }
+    }
+
+    // Close popup with Escape key
+    const handleEscape = (e) => {
+      if (e.key === "Escape") {
+        popup.classList.remove("show")
+        document.removeEventListener("keydown", handleEscape)
+      }
+    }
+    document.addEventListener("keydown", handleEscape)
+  }
+  // Contact Form
+  ;(() => {
+    emailjs.init("n1U0WQdG85frG2EPk") // Replace with your EmailJS Public Key
+  })()
+
+  document.getElementById("contact-form").addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    emailjs
+      .send("service_dvfoq02", "template_lybyta4", {
+        from_name: document.getElementById("contactName").value,
+        from_email: document.getElementById("contactEmail").value,
+        message: document.getElementById("contactMessage").value,
+      })
+      .then(
+        () => {
+          alert("Message sent successfully!")
+          document.getElementById("contact-form").reset()
+        },
+        (error) => {
+          alert("Failed to send message: " + JSON.stringify(error))
+        },
+      )
+  })
 
   // FAQ Toggle
   const faqItems = document.querySelectorAll(".faq-item")
@@ -336,5 +401,3 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
-
-
