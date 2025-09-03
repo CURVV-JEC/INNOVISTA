@@ -158,9 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
           showRegistrationPopup(
             "success",
             "Registration Successful!",
-            "🎉 Your registration has been submitted successfully! "
-            
-
+            "🎉 Your registration has been submitted successfully! We'll contact you soon with further details about Innovista.",
             "fas fa-check-circle",
           )
           document.getElementById("registration-form").reset() // clear form
@@ -187,6 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.disabled = false
       })
   })
+   
+
+  
 
   function showRegistrationPopup(type, title, message, iconClass) {
     const popup = document.getElementById("registration-popup")
@@ -417,6 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
 
 
 
