@@ -158,7 +158,12 @@ document.addEventListener("DOMContentLoaded", () => {
           showRegistrationPopup(
             "success",
             "Registration Successful!",
-            "🎉 Your registration has been submitted successfully! We'll contact you soon with further details about Innovista.",
+            "🎉 Your registration has been submitted successfully! "
+            <a href = "https://chat.whatsapp.com/FwB7X4V9jHACE4TOThP4oE?mode=ems_share_t" target="_blank"
+          style="display:inline-block; padding:10px 15px; background:#25D366; color:white; border-radius:6px; text-decoration:none; font-weight:bold;">
+           👉 Join INNOVISTA WhatsApp Group
+        </a>`,
+
             "fas fa-check-circle",
           )
           document.getElementById("registration-form").reset() // clear form
@@ -415,4 +420,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
 
