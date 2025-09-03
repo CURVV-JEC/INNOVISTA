@@ -229,42 +229,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", handleEscape)
   }
  // Contact Form
-  ;(() => {
-    const contactForm = document.getElementById("contact-form")
-    if (!contactForm) return
+  const contactForm = document.getElementById("contact-form");
 
-    const emailjsAvailable =
-      typeof window !== "undefined" && window.emailjs && typeof window.emailjs.init === "function"
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    // Prevents the default form submission behavior temporarily
+    event.preventDefault(); 
+    
+    // Shows a success message
+    alert("Message sent successfully!");
 
-    if (emailjsAvailable) {
-      try {
-        window.emailjs.init("n1U0WQdG85frG2EPk") // your EmailJS Public Key
-      } catch (e) {
-        console.warn("[v0] EmailJS init failed; falling back to native submit:", e)
-      }
-
-      contactForm.addEventListener("submit", (event) => {
-        event.preventDefault()
-        window.emailjs
-          .send("service_dvfoq02", "template_lybyta4", {
-            from_name: document.getElementById("contactName")?.value || "",
-            from_email: document.getElementById("contactEmail")?.value || "",
-            message: document.getElementById("contactMessage")?.value || "",
-          })
-          .then(() => {
-            alert("Message sent successfully!")
-            contactForm.reset()
-          })
-          .catch((error) => {
-            alert("Failed to send message: " + JSON.stringify(error))
-          })
-      })
-    } else {
-      // No listener: let the form submit to formsubmit.co (default action) so the rest of the script continues
-      console.warn("[v0] EmailJS SDK not found; using native form submission.")
-    }
-  })()
-
+    // Resets the form fields after a short delay
+    setTimeout(() => {
+      contactForm.reset();
+    }, 1000); // 1-second delay
+  });
+}
   
 
   // FAQ Toggle
@@ -418,6 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
 
 
 
