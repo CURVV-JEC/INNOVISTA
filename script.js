@@ -225,30 +225,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     document.addEventListener("keydown", handleEscape)
   }
-  // Contact Form
+ // Contact Form
   ;(() => {
-    emailjs.init("n1U0WQdG85frG2EPk") // Replace with your EmailJS Public Key
+    const contactForm = document.getElementById("contact-form")
+    if (!contactForm) return
+
+    const emailjsAvailable =
+      typeof window !== "undefined" && window.emailjs && typeof window.emailjs.init === "function"
+
+    if (emailjsAvailable) {
+      try {
+        window.emailjs.init("n1U0WQdG85frG2EPk") // your EmailJS Public Key
+      } catch (e) {
+        console.warn("[v0] EmailJS init failed; falling back to native submit:", e)
+      }
+
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault()
+        window.emailjs
+          .send("service_dvfoq02", "template_lybyta4", {
+            from_name: document.getElementById("contactName")?.value || "",
+            from_email: document.getElementById("contactEmail")?.value || "",
+            message: document.getElementById("contactMessage")?.value || "",
+          })
+          .then(() => {
+            alert("Message sent successfully!")
+            contactForm.reset()
+          })
+          .catch((error) => {
+            alert("Failed to send message: " + JSON.stringify(error))
+          })
+      })
+    } else {
+      // No listener: let the form submit to formsubmit.co (default action) so the rest of the script continues
+      console.warn("[v0] EmailJS SDK not found; using native form submission.")
+    }
   })()
 
-  document.getElementById("contact-form").addEventListener("submit", (event) => {
-    event.preventDefault()
-
-    emailjs
-      .send("service_dvfoq02", "template_lybyta4", {
-        from_name: document.getElementById("contactName").value,
-        from_email: document.getElementById("contactEmail").value,
-        message: document.getElementById("contactMessage").value,
-      })
-      .then(
-        () => {
-          alert("Message sent successfully!")
-          document.getElementById("contact-form").reset()
-        },
-        (error) => {
-          alert("Failed to send message: " + JSON.stringify(error))
-        },
-      )
-  })
+  
 
   // FAQ Toggle
   const faqItems = document.querySelectorAll(".faq-item")
@@ -401,3 +415,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 })
+
