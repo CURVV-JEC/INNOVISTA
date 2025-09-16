@@ -1763,4 +1763,18 @@ section:nth-of-type(even) {
   }
 }
 
+    .closed-message {
+      font-size: 2rem;
+      font-weight: bold;
+      color: red;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%   { opacity: 1; }
+      50%  { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+
 
