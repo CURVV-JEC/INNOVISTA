@@ -265,68 +265,42 @@
         </section>
 
         <!-- Registration Section -->
+        <!-- Registration Section -->
         <section id="registration" class="registration-section">
             <div class="container">
-                <h2 class="section-title">Registration</h2>
+               
                 <form action="https://sheetdb.io/api/v1/r02mi5qyrf8y6" form id="registration-form"
                     class="registration-form" method="post">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="userName">Full Name</label>
-                            <input type="text" id="userName" name="data[userName]" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contactNumber">Contact Number</label>
-                            <input type="tel" id="contactNumber" name="data[contactNumber]" required>
-                        </div>
+                    
+                      <div class="closed-message">🚫 Registration Closed 🚫</div>
+                  
                     </div>
 
-                    <div class="form-row">
+                   
                         <div class="form-group">
-                            <label for="emailId">Email Address</label>
-                            <input type="email" id="emailId" name="data[emailId]" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="enrollmentNumber">Enrollment Number </label>
-                            <p style="color: red;">If you don't have enrollment number write - NO Enroll. no.  </p>
-                            <input type="text" id="enrollmentNumber" name="data[enrollmentNumber]" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="branch">Branch</label>
-                            <select id="branch" name="data[branch]" required>
-                                <option value="">Select Branch</option>
-                                <option value="IP">Industrial & Production Engineering</option>
-                                <option value="Computer Science">Computer Science & Engineering</option>
-                                <option value="IT">Information Technology</option>
-                                <option value="AI & Data Science">AI & Data Science</option>
-                                <option value="ME">Mechanical Engineering</option>
-                                <option value="CE">Civil Engineering</option>
-                                <option value="EE">Electrical Engineering</option>
-                                <option value="MT">Mechatronics </option>
-                                <option value="EC">Electronics & Communication</option>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="studyYear">Study Year</label>
-                            <select id="studyYear" name="data[studyYear]" required>
-                                <option value="">Select Year</option>
-                                <option value="1st Year">1st Year</option>
-                                <option value="2nd Year">2nd Year</option>
-                                <option value="3rd Year">3rd Year</option>
-                                <option value="4th Year">4th Year</option>
+                            
+                          
                             </select>
                         </div>
                     </div>
 
-                    <button type="submit" class="submit-btn">Register Now</button>
+                    
                 </form>
                 <p id="form-message"></p>
             </div>
         </section>
+            <!-- Registration Popup Modal -->
+        <div id="registration-popup" class="popup-overlay">
+            <div class="popup-content">
+                <div class="popup-icon" id="popup-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 id="popup-title">Registration Successful!</h3>
+                <p id="popup-message">Your registration has been submitted successfully. .</p>
+               
+                <button id="popup-close" class="popup-close-btn">Close</button>
+            </div>
+        </div>
             <!-- Registration Popup Modal -->
         <div id="registration-popup" class="popup-overlay">
             <div class="popup-content">
@@ -588,6 +562,7 @@
 </body>
 
 </html>
+
 
 
 
